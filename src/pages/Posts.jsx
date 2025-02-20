@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 
-export default function Posts() {
+const Posts = () => {
   const { id } = useParams();
-  console.log(id);
+  
+  useEffect(() => {})
   return (
     <div>
         {id}
     </div>
   )
 }
+
+export default Posts;
