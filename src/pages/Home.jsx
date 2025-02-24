@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [users, setUsers] = useState([]);
+  let navigate = useNavigate();
 
   async function getUsers() {
     const { data } = await axios.get(
@@ -21,7 +23,7 @@ const Home = () => {
         <div className="row">
           <div className="user-list">
             {users.map((user) => (
-              <div className="user" key={user.id}>
+              <div className="user" key={user.id} onClick={() => navigate(`${user.id}`)}>
                 <div className="user-card">
                   <div className="user-card__container">
                     <h3>{user.name}</h3>
